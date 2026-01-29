@@ -1,9 +1,10 @@
-import all_recipes.recipes
+import all_recipes.class_recipe
 from app.all_recipes.recipes import *
+from app.all_recipes.class_recipe import *
 
-all_recipes.recipes.show_ingredients(pasta)
-all_recipes.recipes.show_instructions(pasta)
-all_recipes.recipes.show_ingredients(pizza)
-all_recipes.recipes.show_instructions(pizza)
-all_recipes.recipes.show_ingredients(salad)
-all_recipes.recipes.show_instructions(salad)
+all_recipes.class_recipe.Recipe.show_ingredients(pasta)
+all_recipes.class_recipe.Recipe.show_instructions(pasta)
+all_recipes.class_recipe.Recipe.show_ingredients(pizza)
+all_recipes.class_recipe.Recipe.show_instructions(pizza)
+all_recipes.class_recipe.Recipe.show_ingredients(salad)
+all_recipes.class_recipe.Recipe.show_instructions(salad)
