@@ -1,4 +1,5 @@
-from app.all_recipes.class_recipe import *
+
+from app.all_recipes.class_recipe import Recipe
 
 
 pasta = Recipe("Pasta", ["Nudeln, Fleisch"],
