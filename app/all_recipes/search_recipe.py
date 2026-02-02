@@ -50,11 +50,11 @@ def recipe_search_by_ingredient():
                 if second_choice.lower() == "y":
                     print(f"\nRezept: {name}")
                     print("Zutaten:")
-                    for ing in book["ingredients"]:
-                        print(f" - {ing}")
+                    for ingredient_inner in book["ingredients"]:
+                        print(f" - {ingredient_inner}")
                     print("Anleitung:")
-                    for instr in book["instructions"]:
-                        print(f" - {instr}")
+                    for instruction in book["instructions"]:
+                        print(f" - {instruction}")
                 break  # nur diese Zutat, dann weiter mit dem nächsten Rezept
 
     if not found:
