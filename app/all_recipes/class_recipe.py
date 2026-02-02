@@ -13,7 +13,6 @@ class Recipe:
     def get_id(self):
         return self.id
 
-
     def show_ingredients(self):
         print(f"\nZutaten für {self.name}:")
         for ingredient in self.ingredients:
@@ -23,7 +22,6 @@ class Recipe:
         print(f"\nAnleitung für {self.name}:")
         for instruction in self.instructions:
             print(f"- {instruction}")
-
 
     def fill_recipe(self):
         self.name = input("Bitte geben Sie einen Rezeptnamen ein: ")

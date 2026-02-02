@@ -51,7 +51,6 @@ def show_menu():
             for name, book in recipes.items():
                 print(f"\nRezept {name}: ID: {book['id']}")
 
-
 #programm beenden
         elif user_option == '5':
             print("Programm beendet.")
