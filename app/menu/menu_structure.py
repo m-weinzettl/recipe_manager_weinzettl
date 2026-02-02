@@ -10,7 +10,7 @@ Bitte wähle eine Option:
 4. Beenden
 """
 
-def menu_loop():
+def show_menu():
     while True:
         print(menu_user_input())
         user_option = input("Wähle eine Option (1-4): ")
@@ -19,13 +19,13 @@ def menu_loop():
             if not recipes:
                 print("Kein Rezept gefunden.")
             else:
-                for name, data in recipes.items():
+                for name, book in recipes.items():
                     print(f"\nRezept {name}:")
                     print("Zutaten:")
-                    for ingredient in data["ingredients"]:
+                    for ingredient in book["ingredients"]:
                         print(f"- {ingredient}")
                     print("Anleitung:")
-                    for instruction in data["instructions"]:
+                    for instruction in book["instructions"]:
                         print(f"- {instruction}")
 
         elif user_option == '2':
