@@ -6,8 +6,10 @@ def menu_user_input():
 Bitte wähle eine Option:
 1. Alle Rezepte anzeigen
 2. Rezept hinzufügen
-3. Rezept entfernen (nicht implementiert)
-4. Beenden
+3. Funktion zum Entfernen noch nicht implementiert
+4. ID anzeigen
+5. Rezept entfernen (nicht implementiert)
+6. Beenden
 """
 
 def show_menu():
@@ -33,7 +35,8 @@ def show_menu():
             recipe.fill_recipe()
             recipes[recipe.name] = {
                 "ingredients": recipe.ingredients,
-                "instructions": recipe.instructions
+                "instructions": recipe.instructions,
+                "id": recipe.id
             }
             print("Rezept hinzugefügt.")
 
@@ -41,6 +44,10 @@ def show_menu():
             print("Funktion zum Entfernen noch nicht implementiert.")
 
         elif user_option == '4':
+            for name, book in recipes.items():
+                print(f"\nRezept {name}: ID: {book['id']}")
+
+        elif user_option == '5':
             print("Programm beendet.")
             break
 
