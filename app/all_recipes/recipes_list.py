@@ -1,12 +1,14 @@
 
-from app.all_recipes.class_recipe import Recipe
 
+recipes = {
+    "Toast": {
+        "ingredients": ["Toast", "Käse"],
+        "instructions": ["Toast mit Käse belegen, in den Toaster, fertig"]
+    },
 
-pasta = Recipe("Pasta", ["Nudeln, Fleisch"],
-               ["wasser kochen", "Nudeln rein", "Fleisch anbraten"])
+    "Suppe":{
+        "ingredients": ["wasser", "gemüse"],
+        "instructions": ["kochen"]
 
-pizza = Recipe("Pizza", ["Teig, Tomatensauce, Käse"],
-               ["Teig ausrollen", "Tomatensauce drauf", "Käse drauf", "backen"])
-
-salad = Recipe("Salat", ["Blattsalat, Tomaten, Gurken"],
-               ["Gemüse waschen", "Gemüse schneiden", "alles mischen"])
+    }
+}
