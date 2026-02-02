@@ -25,11 +25,11 @@ def search_by_name():
         if search_name.lower() == name.lower():
             found = True
             print(f"Rezept {name} gefunden!")
-            second_choice = input("Wollen Sie die Zutaten anzeigen. (y/n): ")
-            if second_choice.lower() == "y":
+            show = input("Wollen Sie die Zutaten anzeigen. (y/n): ")
+            if show.lower() == "y":
                 for ingredient in book["ingredients"]:
                     print(f" - {ingredient}")
-            elif second_choice.lower() == "n":
+            elif show.lower() == "n":
                 break
             else:
                 break
@@ -43,19 +43,20 @@ def recipe_search_by_ingredient():
 
     for name, book in recipes.items():
         for ingredient in book["ingredients"]:
-            if search_ingredient == ingredient.lower():
+            if search_ingredient in ingredient.lower():
                 found = True
                 print(f"Zutat '{ingredient}' im Rezept '{name}' gefunden!")
-                second_choice = input("Wollen Sie das Rezept anzeigen? (y/n): ")
-                if second_choice.lower() == "y":
+                show = input("Rezept anzeigen? (y/n): ")
+                if show.lower() == "y":
                     print(f"\nRezept: {name}")
                     print("Zutaten:")
-                    for ingredient_inner in book["ingredients"]:
-                        print(f" - {ingredient_inner}")
+                    for ing in book["ingredients"]:
+                        print(f" - {ing}")
                     print("Anleitung:")
-                    for instruction in book["instructions"]:
-                        print(f" - {instruction}")
-                break  # nur diese Zutat, dann weiter mit dem nächsten Rezept
+                    for instr in book["instructions"]:
+                        print(f" - {instr}")
+                break
 
     if not found:
         print("Keine Rezepte mit dieser Zutat gefunden.")
+
