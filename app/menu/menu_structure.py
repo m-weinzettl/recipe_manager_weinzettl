@@ -38,7 +38,7 @@ def show_menu():
             recipes[recipe.name] = {
                 "ingredients": recipe.ingredients,
                 "instructions": recipe.instructions,
-                "id": recipe.id
+                "id": recipe.get_id()
             }
             print("Rezept hinzugefügt.")
 

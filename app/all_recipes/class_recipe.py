@@ -2,16 +2,17 @@ import uuid
 
 
 class Recipe:
-    def __init__(self, name=None, ingredients=None, instructions=None, __id=None):
+    def __init__(self, name=None, ingredients=None, instructions=None, id=None):
         self.name = name
         self.ingredients = ingredients
         self.instructions = instructions
-        self.id = __id or uuid.uuid4()
+        self.__id = id or uuid.uuid4()
 
 ## getter setter für python / kapselung /
 
+
     def get_id(self):
-        return self.id
+        return self.__id
 
     def show_ingredients(self):
         print(f"\nZutaten für {self.name}:")
