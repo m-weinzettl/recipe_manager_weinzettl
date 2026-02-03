@@ -80,7 +80,6 @@ def recipe_search_by_ingredient():
     except json.decoder.JSONDecodeError:
         print("Datei beschädigt")
 
-
 def delete_recipe(recipe_data_new):
     search_name = input("Bitte Rezeptname eingbene: ").lower()
     found = False
@@ -88,6 +87,7 @@ def delete_recipe(recipe_data_new):
     for name, book in recipe_data_new.items():
          if search_name.lower() == name.lower():
             recipe_found = name
+            break
 
     print(f"Rezept {recipe_found} gefunden!")
     delete_yn = input("Wollen Sie das Rezept löschen?")
@@ -98,3 +98,4 @@ def delete_recipe(recipe_data_new):
         print(f"Rezept {recipe_found} gelöscht!")
 
     return recipe_data_new
+

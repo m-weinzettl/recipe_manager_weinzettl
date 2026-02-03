@@ -9,7 +9,17 @@
         ],
         "id": 1
     },
-    "Toast": {
+    "Butter": {
+        "name": "Butter",
+        "ingredients": [
+            "Milch"
+        ],
+        "instructions": [
+            "Schlagen"
+        ],
+        "id": "ae422c3c-0f02-4eee-b5e7-63cde04b824a"
+    },
+    "wurst": {
         "name": "Toast",
         "ingredients": [
             "Käse",
@@ -20,15 +30,5 @@
             "Toasten"
         ],
         "id": "57f62ccd-c161-42cd-ae2c-ccb370006059"
-    },
-    "Butter": {
-        "name": "Butter",
-        "ingredients": [
-            "Milch"
-        ],
-        "instructions": [
-            "Schlagen"
-        ],
-        "id": "ae422c3c-0f02-4eee-b5e7-63cde04b824a"
     }
 }

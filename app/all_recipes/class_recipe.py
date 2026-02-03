@@ -25,21 +25,34 @@ class Recipe:
             print(f"- {instruction}")
 
     def fill_recipe(self):
-        self.name = input("Bitte geben Sie einen Rezeptnamen ein: ")
+        while True:
+            name_input = input("Bitte geben Sie einen Rezeptnamen ein (max. 200 Zeichen: ")
+            if 0 < len(name_input) <= 200:
+                self.name = name_input
+                break
+            else:
+                print("Rezeptname zu lange. Bitte erneut eingeben")
 
         self.ingredients = []
         while True:
-            ingredient = input("Zutaten (Leer Enter um zu Beenden): ")
-            if ingredient == "":
+            ingredient_input = input("Zutaten (Leer Enter um zu Beenden)\n(Max 100 Zeichen): ")
+            if ingredient_input == '':
                 break
-            self.ingredients.append(ingredient)
+            if 0 < len(ingredient_input) <= 100:
+                self.ingredients.append(ingredient_input)
+            else:
+                print("Zutatenname zu lange. Bitte erneut eingeben")
+
 
         self.instructions = []
         while True:
-            instruction = input("Anleitung (Leer Enter um zu Beenden): ")
-            if instruction == "":
+            instruction_input = input("Anleitung (Leer Enter um zu Beenden)\n(Max 100 Zeichen): ")
+            if instruction_input == '':
                 break
-            self.instructions.append(instruction)
+            if 0 < len(instruction_input) <= 100:
+                self.instructions.append(instruction_input)
+            else:
+                print("Anelitungsschritt zu lange. Bitte erneut eingeben")
 
     def do_dict(self):
         return {

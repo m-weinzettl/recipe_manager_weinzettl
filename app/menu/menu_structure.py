@@ -11,8 +11,9 @@ Bitte wählen Sie eine Option:
 1. Alle Rezepte anzeigen
 2. Rezept hinzufügen
 3. Rezept suchen
-4. ID anzeigen
-5. Programm beenden
+4. Rezeptnamen ändern
+5. ID anzeigen
+6. Programm beenden
 """
 
 
@@ -55,13 +56,17 @@ def show_menu():
         elif user_option == '3':
             search_menu(recipe_data_new)
 
-# rezept id suchen
         elif user_option == '4':
+            recipe_service.edit_recipe(recipe_data_new)
+
+# rezept id suchen
+        elif user_option == '5':
             for name, book in recipe_data_new.items():
                 print(f"\nRezept {name}: ID: {book['id']}")
 
+
 #programm beenden
-        elif user_option == '5':
+        elif user_option == '6':
             print("Programm beendet.")
             break
 
