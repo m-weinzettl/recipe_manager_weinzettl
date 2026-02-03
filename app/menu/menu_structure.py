@@ -1,3 +1,4 @@
+
 from app.all_recipes.class_recipe import Recipe
 from app.all_recipes.recipes_list import recipes
 from app.all_recipes.search_recipe import search_menu

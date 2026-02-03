@@ -1,7 +1,6 @@
 
 import uuid
 
-#E
 class Recipe:
     def __init__(self, name=None, ingredients=None, instructions=None, id=None):
         self.name = name

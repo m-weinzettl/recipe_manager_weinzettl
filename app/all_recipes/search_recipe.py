@@ -1,6 +1,6 @@
-from app.all_recipes.recipes_list import recipes
+
 import json
-import app.menu
+
 def search_menu(recipe_data_new):
     print("""
 Rezept suchen:
