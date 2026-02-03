@@ -1,0 +1,32 @@
+{
+    "Toast": {
+        "ingredients": [
+            "Toast",
+            "K\u00e4se"
+        ],
+        "instructions": [
+            "Toast mit K\u00e4se belegen, in den Toaster, fertig"
+        ],
+        "id": 0
+    },
+    "Suppe": {
+        "ingredients": [
+            "wasser",
+            "gem\u00fcse"
+        ],
+        "instructions": [
+            "kochen"
+        ],
+        "id": 1
+    },
+    "test_4": {
+        "name": "test_4",
+        "ingredients": [
+            "wertt"
+        ],
+        "instructions": [
+            "der test"
+        ],
+        "id": "64486aa3-b689-4d4f-be23-4ca4650fcefb"
+    }
+}

@@ -1,5 +1,5 @@
 import uuid
-
+import json
 
 class Recipe:
     def __init__(self, name=None, ingredients=None, instructions=None, id=None):
@@ -41,5 +41,10 @@ class Recipe:
                 break
             self.instructions.append(instruction)
 
-        #return Recipe(self.name, self.ingredients, self.instructions)
+    def do_dict(self):
+        return {
+            "name": self.name,
+            "ingredients":  self.ingredients,
+            "instructions": self.instructions,
+            "id": str(self.__id)}
 

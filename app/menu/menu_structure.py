@@ -1,6 +1,9 @@
 from app.all_recipes.class_recipe import Recipe
 from app.all_recipes.recipes_list import recipes
 from app.all_recipes.search_recipe import search_menu
+from app.services import recipe_service
+from services.recipe_service import show_recipes_from_db, write_recipes_to_db
+
 
 def menu_user_input():
     return """
@@ -22,24 +25,15 @@ def show_menu():
             if not recipes:
                 print("Kein Rezept gefunden.")
             else:
-                for name, book in recipes.items():
-                    print(f"\nRezept {name}:")
-                    print("Zutaten:")
-                    for ingredient in book["ingredients"]:
-                        print(f"- {ingredient}")
-                    print("Anleitung:")
-                    for instruction in book["instructions"]:
-                        print(f"- {instruction}")
+                show_recipes_from_db()
 
 # neues rezept anlegen
         elif user_option == '2':
-            recipe = Recipe()
-            recipe.fill_recipe()
-            recipes[recipe.name] = {
-                "ingredients": recipe.ingredients,
-                "instructions": recipe.instructions,
-                "id": recipe.get_id()
-            }
+            new_recipe = Recipe()
+            new_recipe.fill_recipe()
+
+            write_recipes_to_db(new_recipe)
+
             print("Rezept hinzugefügt.")
 
 # rezept suchen / entfernen
