@@ -1,5 +1,4 @@
 import json
-import app.all_recipes.class_recipe as recipe_class
 
 def show_recipes_from_db(recipe_data_new):
 
@@ -12,13 +11,13 @@ def show_recipes_from_db(recipe_data_new):
             for instruction in book["instructions"]:
                 print(f"- {instruction}")
 
-def write_recipes_to_db(new_recipe_data, recipe_data_new):
+def write_recipes_to_db(new_recipe, recipe_data_new):
 
-    recipe_data_new[new_recipe_data.name] = new_recipe_data.do_dict()
+    recipe_data_new[new_recipe.name] = new_recipe.do_dict()
 
     with open("./db_json.json", 'w', encoding='utf-8') as db:
         json.dump(recipe_data_new, db, ensure_ascii=False, indent=4)
-        print(f"Rezept {new_recipe_data.name}: Erfolgreich gespeichert")
+        print(f"Rezept {new_recipe.name}: Erfolgreich gespeichert")
 
 def edit_recipe(recipe_data_new):
     search_name = input("Bitte Rezeptname eingbene: ").lower()
@@ -36,6 +35,7 @@ def edit_recipe(recipe_data_new):
             new_name = input("Bitte neuen Rezeptnamen eingeben.")
 
             book = recipe_data_new.pop(recipe_found)
+            book["name"] = new_name
             recipe_data_new[new_name] = book
 
             with open("./db_json.json", 'w', encoding='utf-8') as db:
