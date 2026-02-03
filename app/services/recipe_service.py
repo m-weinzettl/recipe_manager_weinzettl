@@ -35,7 +35,6 @@ def write_recipes_to_db(new_recipe_data):
         with open("./db_json.json", 'w', encoding='utf-8') as db:
             json.dump(recipe_data, db, ensure_ascii=False, indent=4)
             print(f"Rezept {new_recipe_data.name}: Erfolgreich gespeichert")
-
     except FileNotFoundError:
         print("Error")
     except json.decoder.JSONDecodeError:

@@ -3,7 +3,7 @@ from app.all_recipes.recipes_list import recipes
 from app.all_recipes.search_recipe import search_menu
 from app.services import recipe_service
 from services.recipe_service import show_recipes_from_db, write_recipes_to_db
-
+import json
 
 def menu_user_input():
     return """
@@ -15,7 +15,24 @@ Bitte wählen Sie eine Option:
 5. Programm beenden
 """
 
+
+def load_from_json(recipe_data_new):
+    try:
+        with open("./db_json.json", 'r', encoding='utf-8') as from_json:
+            recipe_data_new = json.load(from_json)
+
+        return recipe_data_new
+
+    except FileNotFoundError:
+        print("error")
+
+
+
 def show_menu():
+    recipe_data_new = {}
+    recipe_data_new = load_from_json(recipe_data_new)
+
+
     while True:
         print(menu_user_input())
         user_option = input("Wählen Sie eine Option (1-4): ")
@@ -34,11 +51,9 @@ def show_menu():
 
             write_recipes_to_db(new_recipe)
 
-            print("Rezept hinzugefügt.")
-
 # rezept suchen / entfernen
         elif user_option == '3':
-            search_menu()
+            search_menu(recipe_data_new)
 
 # rezept id suchen
         elif user_option == '4':
