@@ -42,14 +42,14 @@ def show_menu():
             if not recipes:
                 print("Kein Rezept gefunden.")
             else:
-                show_recipes_from_db()
+                show_recipes_from_db(recipe_data_new)
 
 # neues rezept anlegen
         elif user_option == '2':
             new_recipe = Recipe()
             new_recipe.fill_recipe()
 
-            write_recipes_to_db(new_recipe)
+            write_recipes_to_db(new_recipe, recipe_data_new)
 
 # rezept suchen / entfernen
         elif user_option == '3':
@@ -57,7 +57,7 @@ def show_menu():
 
 # rezept id suchen
         elif user_option == '4':
-            for name, book in recipes.items():
+            for name, book in recipe_data_new.items():
                 print(f"\nRezept {name}: ID: {book['id']}")
 
 #programm beenden

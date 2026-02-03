@@ -6,7 +6,8 @@ def search_menu(recipe_data_new):
 Rezept suchen:
 1. Rezeptname
 2. Zutat
-3. Abbrechen
+3. Rezept löschen
+4. Abbrechen
 """)
 
     while True:
@@ -16,9 +17,9 @@ Rezept suchen:
         elif choice == "2":
             recipe_search_by_ingredient()
         elif choice == "3":
-            break
-        elif choice == "4":
             recipe_data_new = delete_recipe(recipe_data_new)
+        elif choice == "4":
+            break
 
 def search_by_name():
     search_name = input("Bitte Rezeptname eingbene: ").lower()
