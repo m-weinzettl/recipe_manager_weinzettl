@@ -1,6 +1,5 @@
 
 from app.all_recipes.class_recipe import Recipe
-from app.all_recipes.recipes_list import recipes
 from app.all_recipes.search_recipe import search_menu
 from app.services import recipe_service
 from services.recipe_service import show_recipes_from_db, write_recipes_to_db
@@ -39,7 +38,7 @@ def show_menu():
 
 # show all recipes
         if user_option == '1':
-            if not recipes:
+            if not recipe_data_new:
                 print("Kein Rezept gefunden.")
             else:
                 show_recipes_from_db(recipe_data_new)

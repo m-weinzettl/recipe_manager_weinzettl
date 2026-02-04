@@ -21,64 +21,50 @@ Rezept suchen:
         elif choice == "4":
             break
 
-def search_by_name():
+def search_by_name(recipe_data_new):
     search_name = input("Bitte Rezeptname eingbene: ").lower()
     found = False
-    try:
-        with open("./db_json.json", 'r', encoding='utf-8') as db:
-            recipe_data = json.load(db)
-            for name, book in recipe_data.items():
-                if search_name.lower() == name.lower():
-                    found = True
-                    print(f"Rezept {name} gefunden!")
-                    show = input("Wollen Sie die Zutaten anzeigen. (y/n): ")
-                    if show.lower() == "y":
-                        for ingredient in book["ingredients"]:
-                            print(f" - {ingredient}")
-                    elif show.lower() == "n":
-                        break
-                    else:
-                        break
 
-            if not found:
-                print("Kein Rezept gefunden.")
+    for name, book in recipe_data_new.items():
+        if search_name.lower() == name.lower():
+            found = True
+            print(f"Rezept {name} gefunden!")
+            show = input("Wollen Sie die Zutaten anzeigen. (y/n): ")
+            if show.lower() == "y":
+                for ingredient in book["ingredients"]:
+                    print(f" - {ingredient}")
+            elif show.lower() == "n":
+                break
+            else:
+                break
 
-    except FileNotFoundError:
-        print("Keine Rezept gefunden.")
-    except json.decoder.JSONDecodeError:
-        print("Datei beschädigt")
+    if not found:
+        print("Kein Rezept gefunden.")
 
-def recipe_search_by_ingredient():
+
+def recipe_search_by_ingredient(recipe_data_new):
     search_ingredient = input("Bitte Zutat eingeben: ").lower()
     found = False
 
-    try:
-        with open("./db_json.json", 'r', encoding='utf-8') as db:
-            recipe_data = json.load(db)
-            for name, book in recipe_data.items():
-                for ingredient in book["ingredients"]:
-                    if search_ingredient in ingredient.lower():
-                        found = True
-                        print(f"Zutat '{ingredient}' im Rezept '{name}' gefunden!")
-                        show = input("Rezept anzeigen? (y/n): ")
-                        if show.lower() == "y":
-                            print(f"\nRezept: {name}")
-                            print("Zutaten:")
-                            for ing in book["ingredients"]:
-                                print(f" - {ing}")
-                            print("Anleitung:")
-                            for instr in book["instructions"]:
-                                print(f" - {instr}")
-                        break
+    for name, book in recipe_data_new.items():
+        for ingredient in book["ingredients"]:
+            if search_ingredient in ingredient.lower():
+                found = True
+                print(f"Zutat '{ingredient}' im Rezept '{name}' gefunden!")
+                show = input("Rezept anzeigen? (y/n): ")
+                if show.lower() == "y":
+                    print(f"\nRezept: {name}")
+                    print("Zutaten:")
+                    for ing in book["ingredients"]:
+                        print(f" - {ing}")
+                    print("Anleitung:")
+                    for instr in book["instructions"]:
+                        print(f" - {instr}")
+                break
 
-            if not found:
-                print("Keine Rezepte mit dieser Zutat gefunden.")
+    if not found:
+        print("Keine Rezepte mit dieser Zutat gefunden.")
 
-
-    except FileNotFoundError:
-        print("Keine Rezept gefunden.")
-    except json.decoder.JSONDecodeError:
-        print("Datei beschädigt")
 
 def delete_recipe(recipe_data_new):
     search_name = input("Bitte Rezeptname eingbene: ").lower()

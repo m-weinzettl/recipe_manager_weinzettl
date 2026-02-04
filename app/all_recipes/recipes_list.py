@@ -14,3 +14,15 @@ recipes = {
 
     }
 }
+####       while True:
+    #        name_input = input("Bitte geben Sie einen Rezeptnamen ein (max. 200 Zeichen: ")
+     #       if 0 < len(name_input) <= 200:
+      #          self.name = name_input
+         #       break
+       #     else:
+        #        print("Rezeptname zu lange. Bitte erneut eingeben")
+#
+#
+#
+#
+#
